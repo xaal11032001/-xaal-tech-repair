@@ -374,7 +374,7 @@ document.getElementById('rcpt-handover').innerText = handover;
 document.getElementById('rcpt-ticket').innerText = '#XTR-2026-' + Math.floor(1000 + Math.random() * 9000);
 // Scroll to receipt view
 document.getElementById('receipt').scrollIntoView({ behavior: 'smooth' });
-Replace the alert() line with: document.getElementById('success modal').classList.remove('hidden');
+document.getElementById('success-modal').classList.remove('hidden');
 });
 </script>
 </body>
