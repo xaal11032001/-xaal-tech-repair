@@ -363,7 +363,7 @@ Generate Ticket & Submit Request
 document.getElementById('repairForm').addEventListener('submit', function(e) {
 e.preventDefault();
 const name = document.getElementById('custName').value;
-const service = document.getElementById('custService').value;
+const service = document.getElementById('service-select').value;
 const handover = document.getElementById('custHandover').value;
 // Update ticket view
 document.getElementById('rcpt-name').innerText = name;
