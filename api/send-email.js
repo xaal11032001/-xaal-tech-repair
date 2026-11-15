@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         personalizations: [{ to: [{ email: to }] }],
-        from: { email: 'your-verified-sender@example.com' },
+        from: { email: 'aderianwallaxaal@gmail.com' },
         subject: subject,
         content: [{ type: 'text/plain', value: text }]
       })
