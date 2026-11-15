@@ -447,20 +447,30 @@
         </div>
     </div>
 
-    <script>
-        function openBookingModal() {
-            document.getElementById('bookingModal').classList.remove('hidden');
-            document.getElementById('bookingModal').classList.add('flex');
-        }
-        function closeBookingModal() {
-            document.getElementById('bookingModal').classList.remove('flex');
-            document.getElementById('bookingModal').classList.add('hidden');
-        }
-        function handleBookingSubmit(event) {
-            event.preventDefault();
-            alert('Thank you! Your request has been received. We will contact you shortly to confirm your booking.');
-            closeBookingModal();
-        }
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const supabaseUrl = 'https://shyvttdbjhiljcrvznko.supabase.co/rest/v1/';
+  const supabaseAnonKey = 'YOUR_ANON_KEY';
+  const supabase = supabaseClient.createClient(supabaseUrl, supabaseAnonKey);
+
+  async function handleBookingSubmit(event) {
+    event.preventDefault();
+    const fullName = document.getElementById('fullName').value;
+    const email = document.getElementById('phone').value;
+    const service = document.getElementById('service').value;
+
+    const { data, error } = await supabase
+      .from('receipts')
+      .insert([{ customer_name: fullName, email: email, service: service }]);
+
+    if (error) {
+      alert('Error saving booking: ' + error.message);
+    } else {
+      alert('Thank you! Your request has been received.');
+      document.querySelector('form').reset();
+    }
+  document.querySelector('form').addEventListener('submit', handleBookingSubmit);
+</script>
+
 </body>
 </html>
