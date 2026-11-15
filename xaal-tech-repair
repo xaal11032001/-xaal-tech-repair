@@ -450,7 +450,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   const supabaseUrl = 'https://shyvttdbjhiljcrvznko.supabase.co/rest/v1/';
-  const supabaseAnonKey = 'YOUR_ANON_KEY';
+  const supabaseAnonKey = 'sb_publishable__kZI9aJdu-x1Kxmo8oKOag_d-Ak30-k';
   const supabase = supabaseClient.createClient(supabaseUrl, supabaseAnonKey);
 
   async function handleBookingSubmit(event) {
