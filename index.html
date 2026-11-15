@@ -414,17 +414,15 @@
       // Show confirmation banner & scroll to receipt
       document.getElementById('ticket-banner').classList.remove('hidden');
       document.getElementById('receipt').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      fetch('https://api.sendgrid.com/v3/mail/send', {
+  fetch('/api/send-email', {
   method: 'POST',
   headers: {
-    'Authorization': 'Bearer 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',
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
-    personalizations: [{ to: [{ email: contact }] }],
-    from: { email: 'your-verified-sender@example.com' },
+    to: contact,
     subject: 'Booking Confirmation',
-    content: [{ type: 'text/plain', value: `Your booking reference is ${ticketRef}.` }]
+    text: `Your booking reference is ${ticketRef}.`
   })
 });
 
